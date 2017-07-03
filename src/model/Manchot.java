@@ -41,7 +41,7 @@ public class Manchot {
 	public double tirerBras() {
 		
 		double gain = 0;
-		Random r = new Random(_randomSeed);
+		Random r = new Random();
 		
 		double random1 = r.nextDouble();
 		double random2 = r.nextDouble();

@@ -130,12 +130,31 @@ public class Strategie {
 		
 	}
 	
+	public static Manchot[] createManchots(int nb_manchots , int min_variance, int max_variance , int min_esperance, int max_esperance, long seed) {
+		
+		Manchot[] _manchots = new Manchot[nb_manchots];
+		
+		Random r = new Random(seed);
+		
+		for (int i = 0 ; i < nb_manchots ; i++) {
+			double esperance = min_esperance + max_esperance * r.nextDouble();
+		
+			double variance = min_variance + max_variance * r.nextDouble();
+			
+			_manchots[i] = new Manchot(esperance, variance, seed);
+			
+		}
+		
+		return _manchots;
+		
+	}
+	
 	/** Pour la recherche Gloutonne **/
 	private int getBestManchotIndex() {
 		
 		int _bestManchotIndex = -1;
 		
-		double bestGain = -999;
+		double bestGain = -999.0;
 		
 		for (int i = 0 ; i < _manchots.length; i++) {
 			
@@ -156,7 +175,7 @@ public class Strategie {
 	private int getBestIndexUCB(double K,HashMap<Integer,Integer> p_tirages,HashMap<Integer,Double> p_sommes,int actual_iteration) {
 		
 		int bestManchotIndex = -1;
-		double bestUCBScore = -999;
+		double bestUCBScore = -999.0;
 		
 		for (int i = 0 ; i < _manchots.length ; i++) {
 			
