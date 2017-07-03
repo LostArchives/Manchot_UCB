@@ -7,9 +7,18 @@ public class Manchot {
 	private double _esperance;
 	private double _variance;
 	
+	private long _randomSeed;
+	
 	public Manchot(double p_esperance, double p_variance) {
 		_esperance = p_esperance;
 		_variance = p_variance;
+		_randomSeed = System.currentTimeMillis();
+	}
+	
+	public Manchot(double p_esperance, double p_variance, long p_seed) {
+		_esperance = p_esperance;
+		_variance = p_variance;
+		_randomSeed = p_seed;
 	}
 	
 	/** Getters and Setters **/
@@ -32,7 +41,7 @@ public class Manchot {
 	public double tirerBras() {
 		
 		double gain = 0;
-		Random r = new Random();
+		Random r = new Random(_randomSeed);
 		
 		double random1 = r.nextDouble();
 		double random2 = r.nextDouble();

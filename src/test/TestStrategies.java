@@ -10,9 +10,9 @@ public class TestStrategies {
 		
 		Strategie strat = new Strategie(mes_manchots);
 		
-		//strat.rechercheAleatoire(15000);
+		strat.rechercheAleatoire(15000);
 		
-		//strat.rechercheGloutonne(15000);
+		strat.rechercheGloutonne(15000);
 		
 		strat.rechercheUCB(Math.sqrt(2), 15000);
 		strat.rechercheUCB(20, 15000);
